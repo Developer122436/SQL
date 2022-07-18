@@ -4,7 +4,7 @@
 
 			SET @sDate = '2022-05-01'
 			SET @eDate = '2022-05-30'
-			SET @Moked = 'ξεωμν αΰψ ωας'
+			SET @Moked = 'ΧΧ•Χ©ΧΧ Χ‘ΧΧ¨ Χ©Χ‘ΧΆ'
 
             -- Show all dates from the first day on a month until the yesterday day of the month
 			WITH cte as   
@@ -15,8 +15,8 @@
             )   
 			
 			-- Creates a training hours of the relevent call center of the dates that was choosen
-            SELECT CAST(n AS DATE) AS 'ϊΰψικ'   
-            , ISNULL(SUM(ROUND(CAST(DATEDIFF(SECOND, TAL.login, TAL.logout) AS Float)/3600,2)),0) AS 'ωςεϊ δγψλδ'   
+            SELECT CAST(n AS DATE) AS 'ΧªΧΧ¨Χ™Χ'   
+            , ISNULL(SUM(ROUND(CAST(DATEDIFF(SECOND, TAL.login, TAL.logout) AS Float)/3600,2)),0) AS 'Χ©ΧΆΧ•Χª Χ”Χ“Χ¨Χ›Χ”'   
             FROM (   
                  SELECT *    
                   FROM cte   
