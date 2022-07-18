@@ -42,11 +42,11 @@ FROM   (
                                                       FROM   repgatedb.cmsclalit.vdns ) AS vdn
                                      ON        IVR.vdn = vdn.vdn_id ) AS UU
                  ON        TT.sessionid = UU.sessionid
-                 WHERE     UU.vdn_group IN('ξιγς εωιψεϊ',
-                                           'βιαει ΰηιεϊ',
-                                           'ξιγς εωιψεϊ ϊξιλδ',
-                                           'ξιγς εωιψεϊ ηιιμιν',
-                                           'ξεωμν')
+                 WHERE     UU.vdn_group IN('ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª',
+                                           'Χ’Χ™Χ‘Χ•Χ™ ΧΧ—Χ™Χ•Χª',
+                                           'ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª ΧªΧΧ™Χ›Χ”',
+                                           'ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª Χ—Χ™Χ™ΧΧ™Χ',
+                                           'ΧΧ•Χ©ΧΧ')
                  OR        RR.hunguppoint IS NOT NULL ) AS A;CREATE TABLE #data1
              (
                           datex                    DATE,
@@ -56,10 +56,10 @@ FROM   (
                           totalhungupafterreminder INT
              );INSERT INTO #data1
 SELECT    A.datex,
-          Isnull(B.[ρκ ωιηεϊ πλπρεϊ μπϊα], 0)                  AS 'ρκ ωιηεϊ πλπρεϊ μπϊα',
-          Isnull(C.[ρκ ωιηεϊ ωδωξεςδ μδν ϊζλεψϊ], 0)     AS 'ρκ ωιηεϊ ωδωξεςδ μδν ϊζλεψϊ',
-          Isnull(D.[πιϊεχ αξεγμ ϊζλεψϊ], 0)                     AS 'πιϊεχ αξεγμ ϊζλεψϊ',
-          Isnull(E.[ρκ πιϊεχιν μΰηψ δωξςϊ ϊζλεψεϊ], 0) AS 'ρκ πιϊεχιν μΰηψ δωξςϊ ϊζλεψεϊ'
+          Isnull(B.[Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ Χ›Χ Χ΅Χ•Χª ΧΧ ΧªΧ‘], 0)                  AS 'Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ Χ›Χ Χ΅Χ•Χª ΧΧ ΧªΧ‘',
+          Isnull(C.[Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ©Χ”Χ©ΧΧ•ΧΆΧ” ΧΧ”Χ ΧªΧ–Χ›Χ•Χ¨Χª], 0)     AS 'Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ©Χ”Χ©ΧΧ•ΧΆΧ” ΧΧ”Χ ΧªΧ–Χ›Χ•Χ¨Χª',
+          Isnull(D.[Χ Χ™ΧªΧ•Χ§ Χ‘ΧΧ•Χ“Χ ΧªΧ–Χ›Χ•Χ¨Χª], 0)                     AS 'Χ Χ™ΧªΧ•Χ§ Χ‘ΧΧ•Χ“Χ ΧªΧ–Χ›Χ•Χ¨Χª',
+          Isnull(E.[Χ΅Χ Χ Χ™ΧªΧ•Χ§Χ™Χ ΧΧΧ—Χ¨ Χ”Χ©ΧΧΆΧª ΧªΧ–Χ›Χ•Χ¨Χ•Χª], 0) AS 'Χ΅Χ Χ Χ™ΧªΧ•Χ§Χ™Χ ΧΧΧ—Χ¨ Χ”Χ©ΧΧΆΧª ΧªΧ–Χ›Χ•Χ¨Χ•Χª'
 FROM      (
                  SELECT datex
                  FROM   repgatedb.dbo.days
@@ -67,7 +67,7 @@ FROM      (
 LEFT JOIN
           (
                    SELECT   datex,
-                            Count(DISTINCT sessionid) AS 'ρκ ωιηεϊ πλπρεϊ μπϊα'
+                            Count(DISTINCT sessionid) AS 'Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ Χ›Χ Χ΅Χ•Χª ΧΧ ΧªΧ‘'
                    FROM     repgatedb.cmsclalit.ivr
                    WHERE    datex BETWEEN '2022-05-22' AND      '2022-05-22'
                    GROUP BY datex ) AS B
@@ -75,7 +75,7 @@ ON        A.datex = B.datex
 LEFT JOIN
           (
                    SELECT   A.datex,
-                            Count(*) AS 'ρκ ωιηεϊ ωδωξεςδ μδν ϊζλεψϊ'
+                            Count(*) AS 'Χ΅Χ Χ©Χ™Χ—Χ•Χª Χ©Χ”Χ©ΧΧ•ΧΆΧ” ΧΧ”Χ ΧªΧ–Χ›Χ•Χ¨Χª'
                    FROM     (
                                             SELECT DISTINCT datex,
                                                             ucid,
@@ -89,7 +89,7 @@ ON        A.datex = C.datex
 LEFT JOIN
           (
                    SELECT   datex,
-                            Count(*) AS 'πιϊεχ αξεγμ ϊζλεψϊ'
+                            Count(*) AS 'Χ Χ™ΧªΧ•Χ§ Χ‘ΧΧ•Χ“Χ ΧªΧ–Χ›Χ•Χ¨Χª'
                    FROM     repgatedb.cmsclalit.ivr
                    WHERE    datex BETWEEN '2022-05-22' AND      '2022-05-22'
                    AND      queuedate IS NOT NULL
@@ -99,7 +99,7 @@ ON        A.datex = D.datex
 LEFT JOIN
           (
                    SELECT   A.datex,
-                            Count(*) AS 'ρκ πιϊεχιν μΰηψ δωξςϊ ϊζλεψεϊ'
+                            Count(*) AS 'Χ΅Χ Χ Χ™ΧªΧ•Χ§Χ™Χ ΧΧΧ—Χ¨ Χ”Χ©ΧΧΆΧª ΧªΧ–Χ›Χ•Χ¨Χ•Χª'
                    FROM     (
                                             SELECT DISTINCT datex,
                                                             ucid,
@@ -178,11 +178,11 @@ LEFT JOIN
                                      FROM   repgatedb.cmsclalit.vdns ) AS vdn
                     ON        IVR.vdn = vdn.vdn_id ) AS UU
 ON        TT.sessionid = UU.sessionid
-WHERE     vdn_group IN('ξιγς εωιψεϊ',
-                       'βιαει ΰηιεϊ',
-                       'ξιγς εωιψεϊ ϊξιλδ',
-                       'ξιγς εωιψεϊ ηιιμιν',
-                       'ξεωμν')
+WHERE     vdn_group IN('ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª',
+                       'Χ’Χ™Χ‘Χ•Χ™ ΧΧ—Χ™Χ•Χª',
+                       'ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª ΧªΧΧ™Χ›Χ”',
+                       'ΧΧ™Χ“ΧΆ Χ•Χ©Χ™Χ¨Χ•Χª Χ—Χ™Χ™ΧΧ™Χ',
+                       'ΧΧ•Χ©ΧΧ')
 OR        RR.hunguppoint IS NOT NULL;CREATE TABLE #t3
              (
                           datex      DATE,
