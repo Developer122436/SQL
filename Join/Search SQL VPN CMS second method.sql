@@ -5,14 +5,14 @@
   SET @eEndAgent='2022-03-12'
 
 SELECT 
-WIS.Username + convert(varchar(10),CF.DateX,103) AS 'ςξεγϊ ςζψ',
-WIS.Username AS 'ιεζψ ριαμ'
-,convert(varchar(10),CF.DateX,103) AS 'ϊΰψικ'
+WIS.Username + convert(varchar(10),CF.DateX,103) AS 'ΧΆΧΧ•Χ“Χª ΧΆΧ–Χ¨',
+WIS.Username AS 'Χ™Χ•Χ–Χ¨ Χ΅Χ™Χ‘Χ'
+,convert(varchar(10),CF.DateX,103) AS 'ΧªΧΧ¨Χ™Χ'
 ,PAL.ID_CardNum
 ,PAL.FullNameHeb
 ,PAL.MokedName
-    ,MIN(convert(varchar(8),Login,108)) AS 'λπιρδ'
-    ,MAX(convert(varchar(8),Logout,108)) AS 'ιφιΰδ'
+    ,MIN(convert(varchar(8),Login,108)) AS 'Χ›Χ Χ™Χ΅Χ”'
+    ,MAX(convert(varchar(8),Logout,108)) AS 'Χ™Χ¦Χ™ΧΧ”'
 FROM (
   SELECT DateX, LoginID, Login, Logout
   FROM Logins.CmsClalitFixed
@@ -42,4 +42,3 @@ INNER JOIN (
 ) WIS ON PAL.ID_CardNum = WIS.ID_CardNum 
 GROUP BY WIS.Username, CF.DateX, PAL.ID_CardNum, PAL.FullNameHeb, PAL.MokedName, WIS.Username
 ORDER BY CF.DateX DESC, MIN(convert(varchar(8),Login,108)) 
-
