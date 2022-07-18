@@ -1,4 +1,4 @@
-    --- ηιτεω πφιβι φχ τερθ μτι ρχιμιν ζιξεο ---
+    --- Χ—Χ™Χ¤Χ•Χ© Χ Χ¦Χ™Χ’Χ™ Χ¦Χ§ Χ¤Χ•Χ΅Χ ΧΧ¤Χ™ Χ΅Χ§Χ™ΧΧ™Χ Χ–Χ™ΧΧ•Χ ---
   DECLARE @MokedID AS Integer
   DECLARE @sDateCalls AS VARCHAR(10)
   DECLARE @eDateCalls AS VARCHAR(10)
@@ -29,11 +29,11 @@
 		WHERE (row_date between @sDateCalls and @eDateCalls AND [acdcalls] IS NOT NULL) OR (logid = 202713 AND row_date between @sDateCalls and @eDateCalls AND [acdcalls] IS NOT NULL) ) AS HA
   INNER JOIN RepGateWorkers.dbo.fn_GenericAgentsList(@sDateAgent,@eEndAgent) AS AL ON AL.LoginID = HA.logid
   INNER JOIN RepGateDB.CmsClalit.Skills AS SK ON SK.Skill = HA.split 
-  WHERE (MokedID IN (@MokedID) AND SkillSubGroup LIKE ('%ζιξεο%')) 
+  WHERE (MokedID IN (@MokedID) AND SkillSubGroup LIKE ('%Χ–Χ™ΧΧ•Χ%')) 
   GROUP BY logid, ID_CardNum, FullNameHeb, CrewName
   ORDER BY FullNameHeb;
 
-  --- ηιτεω πφιβι φχ τερθ μτι ρχιμιν ξιγς ---
+  --- Χ—Χ™Χ¤Χ•Χ© Χ Χ¦Χ™Χ’Χ™ Χ¦Χ§ Χ¤Χ•Χ΅Χ ΧΧ¤Χ™ Χ΅Χ§Χ™ΧΧ™Χ ΧΧ™Χ“ΧΆ ---
   DECLARE @MokedID AS Integer
   DECLARE @sDateCalls AS VARCHAR(10)
   DECLARE @eDateCalls AS VARCHAR(10)
@@ -62,11 +62,11 @@
                RepGateWorkers.dbo.fn_GenericAgentsList(@tDate,@tDate)  
 			   WHERE MokedID IN (@MokedID)) AS AL ON AL.LoginID = HA.logid
   INNER JOIN RepGateDB.CmsClalit.Skills AS SK ON SK.Skill = HA.split 
-  WHERE SkillSubGroup LIKE ('%ξιγς%')
+  WHERE SkillSubGroup LIKE ('%ΧΧ™Χ“ΧΆ%')
   GROUP BY logid, ID_CardNum, FullNameHeb, CrewName
   ORDER BY FullNameHeb;
   
-   -- ηιτεω ωιηεϊ ωμ πφιβι φχ τερθ αλμ δρχιμιν ---
+   -- Χ—Χ™Χ¤Χ•Χ© Χ©Χ™Χ—Χ•Χª Χ©Χ Χ Χ¦Χ™Χ’Χ™ Χ¦Χ§ Χ¤Χ•Χ΅Χ Χ‘Χ›Χ Χ”Χ΅Χ§Χ™ΧΧ™Χ ---
   DECLARE @MokedID AS Integer
   DECLARE @sDateCalls AS VARCHAR(10)
   DECLARE @eDateCalls AS VARCHAR(10)
@@ -94,7 +94,7 @@
   GROUP BY logid, ID_CardNum, FullNameHeb, CrewName
   ORDER BY FullNameHeb;
   
--- ηιτεω πφιβι φχ τερθ ---
+-- Χ—Χ™Χ¤Χ•Χ© Χ Χ¦Χ™Χ’Χ™ Χ¦Χ§ Χ¤Χ•Χ΅Χ ---
 DECLARE @DivX AS Integer
 DECLARE @MokedID AS Integer
 DECLARE @sDate AS VARCHAR(10)
@@ -109,7 +109,7 @@ SET @MokedID=3105
 select * from RepGateWorkers.dbo.fn_GenericAgentsList(@tDate,@tDate)
 WHERE ProjectID IN (@DivX) AND MokedID IN (@MokedID);
 
--- ηιτεω πφιβι ϊχωεα ξδαιϊ λμμιϊ ---
+-- Χ—Χ™Χ¤Χ•Χ© Χ Χ¦Χ™Χ’Χ™ ΧªΧ§Χ©Χ•Χ‘ ΧΧ”Χ‘Χ™Χª Χ›ΧΧΧ™Χª ---
 DECLARE @DivX AS Integer
 DECLARE @MokedID AS Integer
 DECLARE @sDate AS VARCHAR(10)
@@ -124,7 +124,7 @@ SET @MokedID=4449
 select * from RepGateWorkers.dbo.fn_GenericAgentsList(@tDate,@tDate)
 WHERE ProjectID IN (@DivX) AND MokedID IN (@MokedID);
 
---- ηιτεω ϊχωεα ξδαιϊ αωτεϊ ψεριϊ ---
+--- Χ—Χ™Χ¤Χ•Χ© ΧªΧ§Χ©Χ•Χ‘ ΧΧ”Χ‘Χ™Χª Χ‘Χ©Χ¤Χ•Χª Χ¨Χ•Χ΅Χ™Χª ---
  DECLARE @MokedID AS Integer
   DECLARE @sDateCalls AS VARCHAR(10)
   DECLARE @eDateCalls AS VARCHAR(10)
@@ -149,10 +149,6 @@ WHERE ProjectID IN (@DivX) AND MokedID IN (@MokedID);
   FROM [RepGateDB].[CmsClalit].[hagent] AS HA
   INNER JOIN RepGateWorkers.dbo.fn_GenericAgentsList(@tDate,@tDate) AS AL ON AL.LoginID = HA.logid
   INNER JOIN RepGateDB.CmsClalit.Skills AS SK ON SK.Skill = HA.split 
-  WHERE row_date between @sDateCalls and @eDateCalls AND [acdcalls] IS NOT NULL AND MokedID IN (@MokedID) AND LanguageX LIKE ('%ψεριϊ%')
+  WHERE row_date between @sDateCalls and @eDateCalls AND [acdcalls] IS NOT NULL AND MokedID IN (@MokedID) AND LanguageX LIKE ('%Χ¨Χ•Χ΅Χ™Χª%')
   GROUP BY logid, ID_CardNum, FullNameHeb, CrewName
   ORDER BY FullNameHeb;
-
-
-
-
